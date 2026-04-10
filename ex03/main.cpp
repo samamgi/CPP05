@@ -17,12 +17,12 @@
 
 int	main(void)
 {
-	SBCF	sign("sign");
-	Bureaucrat	signataire("president", "72");
-	Bureaucrat	executant("executant", "5");
-	Bureaucrat	boss("boss", "1");
-	RRF	robot("vbla");
-	PPF	pardon("samy");
+	ShrubberyCreationForm	sign("sign");
+	Bureaucrat	signataire("president", 72);
+	Bureaucrat	executant("executant", 5);
+	Bureaucrat	boss("boss", 1);
+	RobotomyRequestForm	robot("vbla");
+	PresidentialPardonForm	pardon("samy");
 	Intern intern;
 	std::string formName;
 	std::string formTarget;

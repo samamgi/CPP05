@@ -32,8 +32,7 @@ class Form
   public:
 	Form();
 	Form(std::string const &new_name);
-	Form(std::string const &new_name, std::string const &new_grade_sign,
-		std::string const &new_grade_exe);
+	Form(std::string const &new_name, int new_grade_sign, int new_grade_exe);
 	Form(Form const &copy);
 	~Form();
 	Form &operator=(Form const &copy);

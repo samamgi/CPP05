@@ -12,39 +12,39 @@
 
 #include "RobotomyRequestForm.hpp"
 
-RRF::RRF() : AForm("RobotomyRequestForm", "72", "45"), target("Default")
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45), target("Default")
 {
 }
 
-RRF::RRF(std::string const &new_target) : AForm("RobotomyRequestForm", "72", "45"), target(new_target)
+RobotomyRequestForm::RobotomyRequestForm(std::string const &new_target) : AForm("RobotomyRequestForm", 72, 45), target(new_target)
 {
 }
 
-RRF::RRF(RRF const &copy) : AForm("RobotomyRequestForm", "72", "45"), target(copy.getTarget())
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &copy) : AForm("RobotomyRequestForm", 72, 45), target(copy.getTarget())
 {
 }
 
-RRF::~RRF()
+RobotomyRequestForm::~RobotomyRequestForm()
 {
 }
 
-RRF	&RRF::operator=(RRF const &copy)
+RobotomyRequestForm	&RobotomyRequestForm::operator=(RobotomyRequestForm const &copy)
 {
 	this->target = copy.getTarget();
 	return (*this);
 }
 
-void	RRF::setTarget(std::string const &new_target)
+void	RobotomyRequestForm::setTarget(std::string const &new_target)
 {
 	this->target = new_target;
 }
 
-std::string	RRF::getTarget() const
+std::string	RobotomyRequestForm::getTarget() const
 {
 	return(this->target);
 }
 
-void	RRF::execute(Bureaucrat const &executor) const
+void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	if (executor.getGrade() > 45)
 	{

@@ -15,17 +15,17 @@
 
 # include "AForm.hpp"
 
-class PPF : public AForm
+class PresidentialPardonForm : public AForm
 {
   private:
 	std::string target;
 
   public:
-	PPF();
-	PPF(std::string const &new_target);
-	PPF(PPF const &copy);
-	~PPF();
-	PPF &operator=(PPF const &copy);
+	PresidentialPardonForm();
+	PresidentialPardonForm(std::string const &new_target);
+	PresidentialPardonForm(PresidentialPardonForm const &copy);
+	~PresidentialPardonForm();
+	PresidentialPardonForm &operator=(PresidentialPardonForm const &copy);
 
 	void setTarget(std::string const &new_target);
 	std::string getTarget() const;

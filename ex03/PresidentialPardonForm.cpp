@@ -12,39 +12,39 @@
 
 #include "PresidentialPardonForm.hpp"
 
-PPF::PPF() : AForm("PresidentialPardonForm", "25", "5")
+PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5)
 {
 }
 
-PPF::PPF(std::string const &new_target) : AForm("PresidentialPardonForm", "25", "5"), target(new_target)
+PresidentialPardonForm::PresidentialPardonForm(std::string const &new_target) : AForm("PresidentialPardonForm", 25, 5), target(new_target)
 {
 }
 
-PPF::PPF(PPF const &copy) : AForm("PresidentialPardonForm", "25", "5"), target(copy.getTarget())
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &copy) : AForm("PresidentialPardonForm", 25, 5), target(copy.getTarget())
 {
 }
 
-PPF::~PPF()
+PresidentialPardonForm::~PresidentialPardonForm()
 {
 }
 
-PPF	&PPF::operator=(PPF const &copy)
+PresidentialPardonForm	&PresidentialPardonForm::operator=(PresidentialPardonForm const &copy)
 {
 	this->target = copy.getTarget();
 	return (*this);
 }
 
-void	PPF::setTarget(std::string const &new_target)
+void	PresidentialPardonForm::setTarget(std::string const &new_target)
 {
 	this->target = new_target;
 }
 
-std::string	PPF::getTarget() const
+std::string	PresidentialPardonForm::getTarget() const
 {
 	return (this->target);
 }
 
-void	PPF::execute(Bureaucrat const &executor) const
+void	PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
 	if (executor.getGrade() > 5)
 	{

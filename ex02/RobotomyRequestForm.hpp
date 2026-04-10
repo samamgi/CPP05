@@ -18,16 +18,16 @@
 # include <iostream>
 # include <string>
 
-class RRF : public AForm
+class RobotomyRequestForm : public AForm
 {
     private: 
         std::string target;
     public:
-        RRF();
-        RRF(std::string const &new_target);
-        RRF(RRF const &copy);
-        ~RRF();
-        RRF &operator=(RRF const &copy);
+        RobotomyRequestForm();
+        RobotomyRequestForm(std::string const &new_target);
+        RobotomyRequestForm(RobotomyRequestForm const &copy);
+        ~RobotomyRequestForm();
+        RobotomyRequestForm &operator=(RobotomyRequestForm const &copy);
 
         void setTarget(std::string const &new_target);
         std::string getTarget() const;

@@ -27,8 +27,8 @@ int	main(void)
 	//     std::string name;
 	//     std::getline(std::cin, name);
 	//     std::cout << "Insert a grade for the Bureaucrat: ";
-	//     std::string grade;
-	//     std::getline(std::cin, grade);
+	//     int grade;
+	//     std::cin >> grade;
 	// 	Bureaucrat specific(name, grade);
 	// 	std::cout << specific;
 	// }
@@ -45,7 +45,7 @@ int	main(void)
 	std::cout << "Testing Grade Too High Exception:" << std::endl;
 	try
 	{
-		Bureaucrat High("High", "0");
+		Bureaucrat High("High", 0);
 		std::cout << High;
 	}
 	catch (std::exception &e)
@@ -56,7 +56,7 @@ int	main(void)
 	std::cout << "Testing Grade Too Low Exception:" << std::endl;
 	try
 	{
-		Bureaucrat Low("Low", "151");
+		Bureaucrat Low("Low", 151);
 		std::cout << Low;
 	}
 	catch (std::exception &e)
@@ -64,18 +64,8 @@ int	main(void)
 		std::cerr << e.what() << std::endl;
 	}
 	std::cout << std::endl;
-	std::cout << "Testing Invalid Argument Exception:" << std::endl;
-	try
-	{
-		Bureaucrat Invalid("Invalid", "abc");
-		std::cout << Invalid;
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	Bureaucrat valid149("Valid149", "149");
-	Bureaucrat valid2("Valid2", "1");
+	Bureaucrat valid149("Valid149", 149);
+	Bureaucrat valid2("Valid2", 1);
 	std::cout << std::endl;
 	std::cout << "Testing Increment and Decrement:" << std::endl;
 	try
@@ -98,8 +88,8 @@ int	main(void)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	Bureaucrat valid1("Valid1", "1");
-	Bureaucrat valid150("Valid150", "150");
+	Bureaucrat valid1("Valid1", 1);
+	Bureaucrat valid150("Valid150", 150);
 	std::cout << std::endl;
 	std::cout << "Testing Increment and Decrement Exceptions:" << std::endl;
 	std::cout << "-------------------" << std::endl;

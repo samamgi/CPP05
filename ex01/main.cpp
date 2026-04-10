@@ -14,10 +14,10 @@
 
 int	main(void)
 {
-	Bureaucrat Low("gradelowtosign", "4");
+	Bureaucrat Low("gradelowtosign", 4);
 	try
 	{
-		Form specific("caca2", "5", "12");
+		Form specific("caca2", 5, 12);
 		std::cout << std::endl << specific;
 		Low.signForm(specific);
 		std::cout << specific;

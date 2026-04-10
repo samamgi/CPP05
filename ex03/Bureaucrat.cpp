@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include <climits>
 
 Bureaucrat::Bureaucrat() : name("Default"), grade(150)
 {
@@ -26,7 +27,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &copy) : name(copy.name),
 }
 
 Bureaucrat::Bureaucrat(std::string const new_name,
-	std::string const new_grade) : name(new_name)
+	int new_grade) : name(new_name)
 {
 	this->setGrade(new_grade);
 }
@@ -71,37 +72,20 @@ void Bureaucrat::decrementGrade()
 	throw(Bureaucrat::GradeTooLowException());
 }
 
-int	checkstring(std::string const new_grade)
+int	checkerror(int new_grade)
 {
-	int	i;
-
-	i = 0;
-	if (new_grade[i] == '-' || new_grade[i] == '+')
-		i++;
-	while (new_grade[i])
-	{
-		if (new_grade[i] < '0' || new_grade[i] > '9')
-			return (-1);
-		i++;
-	}
-	return (1);
-}
-
-int	checkerror(std::string const new_grade)
-{
-	int	check;
-
-	if (checkstring(new_grade) == -1)
-		throw(std::invalid_argument("Invalid Arguments inserted !"));
-	check = atoi(new_grade.c_str());
-	if (check < 1)
+	if (new_grade == INT_MAX)
 		throw(Bureaucrat::GradeTooHighException());
-	if (check > 150)
+	if (new_grade == INT_MIN)
 		throw(Bureaucrat::GradeTooLowException());
-	return (check);
+	if (new_grade < 1)
+		throw(Bureaucrat::GradeTooHighException());
+	if (new_grade > 150)
+		throw(Bureaucrat::GradeTooLowException());
+	return (new_grade);
 }
 
-void Bureaucrat::setGrade(std::string const new_grade)
+void Bureaucrat::setGrade(int new_grade)
 {
 	this->grade = checkerror(new_grade);
 }

@@ -32,8 +32,7 @@ class AForm
   public:
 	AForm();
 	AForm(std::string const &new_name);
-	AForm(std::string const &new_name, std::string const &new_grade_sign,
-		std::string const &new_grade_exe);
+	AForm(std::string const &new_name, int new_grade_sign, int new_grade_exe);
 	AForm(AForm const &copy);
 	virtual ~AForm();
 	AForm &operator=(AForm const &copy);

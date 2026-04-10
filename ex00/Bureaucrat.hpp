@@ -27,7 +27,7 @@ class Bureaucrat
   public:
 	Bureaucrat();
 	Bureaucrat(std::string const new_name);
-	Bureaucrat(std::string const new_name, std::string const new_grade);
+	Bureaucrat(std::string const new_name, int new_grade);
 	Bureaucrat(const Bureaucrat &copy);
 	Bureaucrat &operator=(const Bureaucrat &copy);
 	virtual ~Bureaucrat();
@@ -37,7 +37,7 @@ class Bureaucrat
 
 	void incrementGrade();
 	void decrementGrade();
-	void setGrade(std::string const new_grade);
+	void setGrade(int new_grade);
 
 	class GradeTooLowException : public std::exception
 	{

@@ -18,17 +18,17 @@
 # include <iostream>
 # include <string>
 
-class SBCF : public AForm
+class ShrubberyCreationForm : public AForm
 {
   private:
 	std::string target;
 
   public:
-    SBCF();
-    SBCF(std::string const &new_target);
-    SBCF(SBCF const &copy);
-    ~SBCF();
-    SBCF &operator=(SBCF const &copy);
+    ShrubberyCreationForm();
+    ShrubberyCreationForm(std::string const &new_target);
+    ShrubberyCreationForm(ShrubberyCreationForm const &copy);
+    ~ShrubberyCreationForm();
+    ShrubberyCreationForm &operator=(ShrubberyCreationForm const &copy);
 
     void setTarget(std::string const &new_target);
     std::string getTarget() const;

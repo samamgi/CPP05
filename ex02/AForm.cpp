@@ -11,35 +11,19 @@
 /* ************************************************************************** */
 
 #include "AForm.hpp"
+#include <climits>
 
-int	checkerror(std::string const &grade)
+int	checkgrade(int grade)
 {
-	int	i;
-
-	i = 0;
-	if (grade[i] == '-' || grade[i] == '+')
-		i++;
-	while (grade[i])
-	{
-		if (grade[i] < '0' || grade[i] > '9')
-			return (-1);
-		i++;
-	}
-	return (1);
-}
-
-int	checkgrade(std::string const &grade)
-{
-	int	check;
-
-	if (checkerror(grade) == -1)
-		throw(std::invalid_argument("Invalid Arguments inserted !"));
-	check = atoi(grade.c_str());
-	if (check < 1)
+	if (grade == INT_MAX)
 		throw(AForm::GradeTooHighException());
-	if (check > 150)
+	if (grade == INT_MIN)
 		throw(AForm::GradeTooLowException());
-	return (check);
+	if (grade < 1)
+		throw(AForm::GradeTooHighException());
+	if (grade > 150)
+		throw(AForm::GradeTooLowException());
+	return (grade);
 }
 
 AForm::AForm() : name("Default"), is_signed(false), grade_sign(150),
@@ -52,8 +36,8 @@ AForm::AForm(std::string const &new_name) : name(new_name), is_signed(false),
 {
 }
 
-AForm::AForm(std::string const &new_name, std::string const &new_grade_sign,
-	std::string const &new_grade_exe) : name(new_name), is_signed(false),
+AForm::AForm(std::string const &new_name, int new_grade_sign,
+	int new_grade_exe) : name(new_name), is_signed(false),
 	grade_sign(checkgrade(new_grade_sign)), grade_exe(checkgrade(new_grade_exe))
 {
 }

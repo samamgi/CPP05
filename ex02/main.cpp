@@ -16,11 +16,11 @@
 
 int	main(void)
 {
-	SBCF	sign("sign");
-	Bureaucrat	signataire("president", "72");
-	Bureaucrat	executant("executant", "5");
-	RRF	robot("vbla");
-	PPF	pardon("samy");
+	ShrubberyCreationForm	sign("sign");
+	Bureaucrat	signataire("president", 72);
+	Bureaucrat	executant("executant", 5);
+	RobotomyRequestForm	robot("vbla");
+	PresidentialPardonForm	pardon("samy");
 
 	signataire.signForm(sign);
 	signataire.executeForm(sign);

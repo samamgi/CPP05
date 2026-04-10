@@ -13,41 +13,41 @@
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
 
-SBCF::SBCF() : AForm("ShrubberyCreationForm", "145", "137"), target("Default")
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137), target("Default")
 {
 }
 
-SBCF::SBCF(std::string const &new_target) : AForm("ShrubberyCreationForm",
-	"145", "137"), target(new_target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const &new_target) : AForm("ShrubberyCreationForm",
+	145, 137), target(new_target)
 {
 }
 
-SBCF::SBCF(SBCF const &copy) : AForm("ShrubberyCreationForm", "145", "137"),
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &copy) : AForm("ShrubberyCreationForm", 145, 137),
 	target(copy.getTarget())
 {
 }
 
-SBCF::~SBCF()
+ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
 
-SBCF &SBCF::operator=(SBCF const &copy)
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &copy)
 {
 	this->target = copy.target;
 	return (*this);
 }
 
-void SBCF::setTarget(std::string const &new_target)
+void ShrubberyCreationForm::setTarget(std::string const &new_target)
 {
 	this->target = new_target;
 }
 
-std::string SBCF::getTarget() const
+std::string ShrubberyCreationForm::getTarget() const
 {
 	return (this->target);
 }
 
-void SBCF::execute(Bureaucrat const &executor) const
+void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	std::ofstream file;
 	std::string filename;
@@ -78,4 +78,5 @@ void SBCF::execute(Bureaucrat const &executor) const
 	file << "_- -   | | _- _\n";
 	file << "  _ -  | |   -_\n";
 	file << "      // \\\\\n";
+	file.close();
 }
