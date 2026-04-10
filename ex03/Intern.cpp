@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "Intern.hpp"
+#include <new>
 
 Intern::Intern()
 {
@@ -32,42 +33,47 @@ Intern &Intern::operator=(Intern const &)
 AForm *Intern::makeForm(std::string const &name, std::string const &target)
 {
 	int	i;
+	AForm	*res = NULL;
+	// char	*tab = NULL;
 
-	std::string code[3] = {"presidential pardon", "robotomy request",
-		"shrubbery creation"};
+	std::string code[4] = {"presidential pardon", "robotomy request",
+		"shrubbery creation", "NULL"};
 	i = 0;
-	while (i < 3)
+	while (i <= 3)
 	{
-		if (code[i] == name)
-			break ;
+		if (i == 3 || name == code[i])
+		{
+			// try
+			// {
+
+				switch (i)
+				{
+					case 0:
+						// tab = new char[1000000000000000];
+						// (void)tab;
+						std::cout << "Intern creates PresidentialPardon" << std::endl;
+						res = new PresidentialPardonForm(target);
+						break;
+					case 1:
+						res = new RobotomyRequestForm(target);
+						std::cout << "Intern creates RobotomyRequest" << std::endl;
+						break;
+					case 2:
+						res = new ShrubberyCreationForm(target);
+						std::cout << "Intern creates ShrubberyCreation" << std::endl;
+						break;
+					case 3:
+						std::cout << "Intern could not create Form" << std::endl;
+						return (NULL);
+				}
+			// }
+			// // catch (const std::bad_alloc &e)
+			// // {
+			// // 	throw std::runtime_error("Memory allocation failed: " + std::string(e.what()));
+			// // }
+			return (res);
+		}
 		i++;
 	}
-	switch (i)
-	{
-		case 0:
-		{
-			std::cout << "Intern creates PresidentialPardon" << std::endl;
-			try
-			{
-				return (new PresidentialPardonForm(target));
-			}
-			catch (std::exception &e)
-			{
-				std::cerr << e.what() << std::endl;
-				return (NULL);
-			}
-		}
-		case 1:
-		{
-			return (std::cout << "Intern creates RobotomyRequest" << std::endl,
-				new RobotomyRequestForm(target));
-		}
-		case 2:
-		{
-			return (std::cout << "Intern creates ShrubberyCreation" << std::endl,
-				new ShrubberyCreationForm(target));
-		}
-	}
-	std::cout << "Intern could not creates Form" << std::endl;
-	return (NULL);
+	return (res);
 }

@@ -31,19 +31,32 @@ int	main(void)
 	getline(std::cin, formName);
 	std::cout << "Enter the form target: " << std::endl;
 	getline(std::cin, formTarget);
-	AForm	*form = intern.makeForm(formName, formTarget);
-	if (form != NULL)
+	AForm	*form = NULL;
+	try
 	{
+		form = intern.makeForm(formName, formTarget);
+		if (form != NULL)
+		{
 		signataire.signForm(*form);
 		signataire.executeForm(*form);
 		boss.signForm(*form);
 		boss.executeForm(*form);
+		delete form;
+		form = NULL;
+		}
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+		if (form != NULL)
+		{
+			delete form;
+			form = NULL;
+		}
 	}
 	signataire.signForm(robot);
 	signataire.executeForm(robot);
 	executant.executeForm(robot);
 	executant.signForm(pardon);
 	executant.executeForm(pardon);
-	if (form != NULL)
-		delete form;
 }

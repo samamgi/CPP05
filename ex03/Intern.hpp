@@ -24,6 +24,6 @@ class	Intern
 		~Intern();
 
 		Intern	&operator=(Intern const &);
-
+		
 		AForm	*makeForm(std::string const &name, std::string const &target);
 };
